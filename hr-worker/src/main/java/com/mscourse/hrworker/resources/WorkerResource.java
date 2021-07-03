@@ -1,6 +1,7 @@
 package com.mscourse.hrworker.resources;
 
 import java.util.List;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,7 @@ public class WorkerResource {
 	
 	private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
 	
+	
 	@Autowired
 	private Environment env;
 
@@ -35,6 +37,17 @@ public class WorkerResource {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Worker> findById(@PathVariable Long id) {
+
+		/*
+		Random random = new Random();
+		if (random.nextBoolean()) {
+			try {
+				Thread.sleep(3000L);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		*/
 		
 		logger.info("PORT = " + env.getProperty("local.server.port"));
 		
